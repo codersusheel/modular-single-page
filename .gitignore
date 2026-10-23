@@ -1,0 +1,81 @@
+
+# ==========================================
+# MODULAR SINGLE PAGE
+# Git Ignore Configuration
+# ==========================================
+
+# Dependencies
+node_modules/
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+*~
+
+# Operating system files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# IDE / Editor files
+.vscode/
+.idea/
+*.code-workspace
+
+# Build outputs
+dist/
+build/
+coverage/
+
+# Cache
+.cache/
+.parcel-cache/
+.eslintcache
+*.tsbuildinfo
+
+# Local configuration
+config/local.json
+config/secrets.json
+
+# Test outputs
+test-results/
+playwright-report/
+
+# Python local files
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Local backup folders
+backup/
+backups/
+
+# ==========================================
+# IMPORTANT PROJECT FILES
+# These remain trackable by Git
+# ==========================================
+
+!index.html
+!README.md
+!LICENSE
+!config/
+!sections/
+!assets/
+!docs/

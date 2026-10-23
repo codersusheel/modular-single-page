@@ -1,0 +1,46 @@
+
+{
+  "version": "1.0.0",
+  "sections": [
+    {
+      "id": "header",
+      "file": "sections/header.html",
+      "enabled": true,
+      "navigation": false
+    },
+    {
+      "id": "hero",
+      "file": "sections/hero.html",
+      "enabled": true,
+      "navigation": true,
+      "label": "Home"
+    },
+    {
+      "id": "about",
+      "file": "sections/about.html",
+      "enabled": true,
+      "navigation": true,
+      "label": "About"
+    },
+    {
+      "id": "projects",
+      "file": "sections/projects.html",
+      "enabled": true,
+      "navigation": true,
+      "label": "Projects"
+    },
+    {
+      "id": "contact",
+      "file": "sections/contact.html",
+      "enabled": true,
+      "navigation": true,
+      "label": "Contact"
+    },
+    {
+      "id": "footer",
+      "file": "sections/footer.html",
+      "enabled": true,
+      "navigation": false
+    }
+  ]
+}
