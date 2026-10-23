@@ -1,0 +1,145 @@
+{
+  "version": "1.0.0",
+  "settings": {
+    "enabled": true,
+    "autoGenerate": true,
+    "showIcons": true,
+    "activeLinkHighlight": true,
+    "smoothScroll": true,
+    "closeMobileMenuOnClick": true,
+    "hideDisabledSections": true
+  },
+  "navigation_system": [
+    {
+      "category": "Main Menu",
+      "items": [
+        {
+          "name": "Home",
+          "icon": "fa-house",
+          "url": "#home",
+          "type": "section",
+          "sectionId": "hero",
+          "enabled": true,
+          "order": 1,
+          "placements": [
+            "header",
+            "mobile",
+            "footer"
+          ]
+        },
+        {
+          "name": "About",
+          "icon": "fa-circle-info",
+          "url": "#about-section",
+          "type": "section",
+          "sectionId": "about",
+          "enabled": true,
+          "order": 2,
+          "placements": [
+            "header",
+            "mobile",
+            "footer"
+          ]
+        },
+        {
+          "name": "Skills",
+          "icon": "fa-code",
+          "url": "#skills-section",
+          "type": "section",
+          "sectionId": "skills",
+          "enabled": true,
+          "order": 3,
+          "placements": [
+            "header",
+            "mobile"
+          ]
+        },
+        {
+          "name": "Services",
+          "icon": "fa-gears",
+          "url": "#services-section",
+          "type": "section",
+          "sectionId": "services",
+          "enabled": true,
+          "order": 4,
+          "placements": [
+            "header",
+            "mobile"
+          ]
+        },
+        {
+          "name": "Projects",
+          "icon": "fa-folder-open",
+          "url": "#projects-section",
+          "type": "section",
+          "sectionId": "projects",
+          "enabled": true,
+          "order": 5,
+          "placements": [
+            "header",
+            "mobile",
+            "footer"
+          ]
+        },
+        {
+          "name": "Experience",
+          "icon": "fa-briefcase",
+          "url": "#experience-section",
+          "type": "section",
+          "sectionId": "experience",
+          "enabled": true,
+          "order": 6,
+          "placements": [
+            "header",
+            "mobile"
+          ]
+        },
+        {
+          "name": "Contact",
+          "icon": "fa-envelope",
+          "url": "#contact-section",
+          "type": "section",
+          "sectionId": "contact",
+          "enabled": true,
+          "order": 7,
+          "placements": [
+            "header",
+            "mobile",
+            "footer"
+          ]
+        }
+      ]
+    },
+    {
+      "category": "External Links",
+      "items": [
+        {
+          "name": "GitHub",
+          "icon": "fa-github",
+          "url": "https://github.com/codersusheel",
+          "type": "external",
+          "enabled": true,
+          "order": 10,
+          "target": "_blank",
+          "placements": [
+            "mobile",
+            "footer"
+          ]
+        },
+        {
+          "name": "LinkedIn",
+          "icon": "fa-linkedin",
+          "url": "https://www.linkedin.com/in/codersusheel/",
+          "type": "external",
+          "enabled": true,
+          "order": 11,
+          "target": "_blank",
+          "placements": [
+            "mobile",
+            "footer"
+          ]
+        }
+      ]
+    }
+  ]
+}

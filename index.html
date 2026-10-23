@@ -3,200 +3,871 @@
 <html lang="en">
 
 <head>
-    <!-- ==========================================
+
+    <!-- =====================================================
          BASIC META
-    ========================================== -->
+    ===================================================== -->
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Modular Single Page | HTML, CSS & JavaScript</title>
+    <title>
+        Modular Single Page | HTML, CSS & JavaScript Website Starter
+    </title>
 
     <meta name="description"
-        content="Modular Single Page is a lightweight, reusable website starter built with HTML, CSS, JavaScript and JSON. Create and manage website sections easily.">
+        content="Modular Single Page is a lightweight, open-source website starter built with HTML, CSS, JavaScript and JSON. Create reusable sections, dynamic navigation and responsive single-page websites.">
 
     <meta name="keywords"
-        content="Modular Single Page, HTML, CSS, JavaScript, JSON, SPA, Dynamic Sections, Web Development, Vanilla JavaScript">
+        content="Modular Single Page, HTML, CSS, JavaScript, JSON, Vanilla JS, Dynamic Sections, Website Starter, Single Page Website, Open Source, Codersusheel">
 
     <meta name="author" content="Codersusheel">
     <meta name="robots" content="index, follow">
-
-    <!-- ==========================================
-         THEME
-    ========================================== -->
     <meta name="theme-color" content="#2563eb">
     <meta name="color-scheme" content="light dark">
 
-    <!-- ==========================================
+    <!-- =====================================================
+         CANONICAL
+    ===================================================== -->
+
+    <link rel="canonical"
+        href="https://codersusheel.github.io/modular-single-page/">
+
+    <!-- =====================================================
          OPEN GRAPH
-    ========================================== -->
+    ===================================================== -->
+
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Modular Single Page">
-    <meta property="og:description"
-        content="Build modern modular websites with HTML, CSS, JavaScript and JSON.">
     <meta property="og:site_name" content="Modular Single Page">
 
-    <!-- ==========================================
-         STYLESHEETS
-    ========================================== -->
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <link rel="stylesheet" href="./assets/css/responsive.css">
-    <link rel="stylesheet" href="./assets/css/sections.css">
+    <meta property="og:title"
+        content="Modular Single Page | Open Source Website Starter">
 
-    <!-- ==========================================
-         MAIN JAVASCRIPT
-    ========================================== -->
+    <meta property="og:description"
+        content="Build modern, responsive and reusable single-page websites using HTML, CSS, JavaScript and JSON.">
+
+    <meta property="og:url"
+        content="https://codersusheel.github.io/modular-single-page/">
+
+    <!-- Add image when available -->
+    <!--
+    <meta property="og:image"
+        content="https://codersusheel.github.io/modular-single-page/assets/images/banner.jpg">
+    -->
+
+    <!-- =====================================================
+         TWITTER CARD
+    ===================================================== -->
+
+    <meta name="twitter:card" content="summary">
+
+    <meta name="twitter:title"
+        content="Modular Single Page | HTML, CSS & JavaScript">
+
+    <meta name="twitter:description"
+        content="An open-source modular single-page website starter with reusable HTML sections and JSON configuration.">
+
+    <!-- =====================================================
+         FAVICON
+    ===================================================== -->
+
+    <!--
+    <link rel="icon" type="image/png"
+        href="./assets/images/favicon.png">
+
+    <link rel="apple-touch-icon"
+        href="./assets/images/apple-touch-icon.png">
+    -->
+
+    <!-- =====================================================
+         CSS FILES
+    ===================================================== -->
+
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/sections.css">
+    <link rel="stylesheet" href="./assets/css/responsive.css">
+
+    <!-- =====================================================
+         PAGE-SPECIFIC CSS
+    ===================================================== -->
+
+    <style>
+
+        /* ================= SKIP LINK ================= */
+
+        .skip-link {
+            position: fixed;
+            top: -100px;
+            left: 15px;
+            z-index: 99999;
+
+            padding: 12px 18px;
+            border-radius: 8px;
+
+            background: #2563eb;
+            color: #ffffff;
+
+            font-weight: 600;
+        }
+
+        .skip-link:focus {
+            top: 15px;
+        }
+
+        /* ================= PAGE LOADING BAR ================= */
+
+        #page-loading-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 99999;
+
+            width: 0;
+            height: 3px;
+
+            background: #3b82f6;
+            transition: width 0.3s ease;
+            pointer-events: none;
+        }
+
+        /* ================= SECTION LOADER ================= */
+
+        .section-placeholder {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+
+            min-height: 180px;
+            padding: 40px 20px;
+
+            background: var(--site-bg, #ffffff);
+            color: var(--site-muted, #64748b);
+
+            text-align: center;
+        }
+
+        .section-placeholder p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        .section-spinner {
+            width: 30px;
+            height: 30px;
+
+            border: 3px solid var(--site-border, #e2e8f0);
+            border-top-color: var(--site-primary, #2563eb);
+            border-radius: 50%;
+
+            animation: sectionSpin 0.8s linear infinite;
+        }
+
+        @keyframes sectionSpin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* ================= HERO PLACEHOLDER ================= */
+
+        #hero > .section-placeholder {
+            min-height: 65vh;
+            background: linear-gradient(
+                135deg,
+                #0f172a,
+                #1e3a8a
+            );
+            color: #cbd5e1;
+        }
+
+        /* ================= HEADER PLACEHOLDER ================= */
+
+        #header > .section-placeholder {
+            min-height: 76px;
+            padding: 15px;
+        }
+
+        /* ================= FOOTER PLACEHOLDER ================= */
+
+        #footer > .section-placeholder {
+            min-height: 140px;
+            background: var(--site-surface, #f8fafc);
+        }
+
+        /* ================= FALLBACK ================= */
+
+        .section-fallback {
+            padding: 60px 20px;
+            text-align: center;
+
+            background: var(--site-surface, #f8fafc);
+            color: var(--site-text, #0f172a);
+        }
+
+        .section-fallback h2 {
+            margin-bottom: 12px;
+            font-size: 1.5rem;
+        }
+
+        .section-fallback p {
+            max-width: 550px;
+            margin: 0 auto 20px;
+            color: var(--site-muted, #64748b);
+        }
+
+        .section-fallback a {
+            display: inline-flex;
+            padding: 10px 18px;
+
+            border-radius: 8px;
+            background: var(--site-primary, #2563eb);
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        /* ================= APP STATUS ================= */
+
+        #app-status {
+            position: fixed;
+            right: 18px;
+            bottom: 18px;
+            z-index: 900;
+
+            max-width: 320px;
+            padding: 10px 15px;
+
+            border: 1px solid var(--site-border, #e2e8f0);
+            border-radius: 10px;
+
+            background: var(--site-surface, #ffffff);
+            color: var(--site-text, #0f172a);
+
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+
+            font-size: 0.82rem;
+        }
+
+        #app-status[hidden] {
+            display: none !important;
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 600px) {
+
+            .section-placeholder {
+                min-height: 140px;
+                padding: 30px 15px;
+            }
+
+            #app-status {
+                right: 12px;
+                bottom: 12px;
+                left: 12px;
+                max-width: none;
+            }
+        }
+
+        /* ================= REDUCED MOTION ================= */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            .section-spinner {
+                animation: none;
+            }
+
+            #page-loading-bar {
+                transition: none;
+            }
+        }
+
+    </style>
+
+    <!-- =====================================================
+         EARLY THEME INITIALIZATION
+    ===================================================== -->
+
+    <script>
+        (function () {
+            try {
+                const saved = localStorage.getItem("modular-page-theme");
+                const preference = ["light", "dark", "system"].includes(saved)
+                    ? saved
+                    : "system";
+
+                const dark = window.matchMedia(
+                    "(prefers-color-scheme: dark)"
+                ).matches;
+
+                const effective = preference === "system"
+                    ? (dark ? "dark" : "light")
+                    : preference;
+
+                document.documentElement.dataset.theme = effective;
+                document.documentElement.dataset.themePreference = preference;
+                document.documentElement.style.colorScheme = effective;
+
+            } catch (error) {
+                document.documentElement.dataset.theme = "light";
+            }
+        })();
+    </script>
+
+    <!-- =====================================================
+         JAVASCRIPT MODULES
+    ===================================================== -->
+
+    <script src="./assets/js/section-loader.js" defer></script>
+    <script src="./assets/js/navigation.js" defer></script>
+    <script src="./assets/js/theme.js" defer></script>
     <script src="./assets/js/main.js" defer></script>
+
+    <!-- =====================================================
+         STRUCTURED DATA
+    ===================================================== -->
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareSourceCode",
+        "name": "Modular Single Page",
+        "description": "An open-source modular single-page website starter built with HTML, CSS, JavaScript and JSON.",
+        "url": "https://github.com/codersusheel/modular-single-page",
+        "codeRepository": "https://github.com/codersusheel/modular-single-page",
+        "programmingLanguage": [
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "JSON"
+        ],
+        "license": "https://opensource.org/licenses/MIT",
+        "author": {
+            "@type": "Person",
+            "name": "Codersusheel",
+            "url": "https://github.com/codersusheel"
+        },
+        "isAccessibleForFree": true
+    }
+    </script>
 
 </head>
 
 <body>
 
-    <!-- ==========================================
-         NOSCRIPT FALLBACK
-    ========================================== -->
-    <noscript>
-        <div class="noscript-message">
-            JavaScript is required to load the modular website sections.
-            Please enable JavaScript in your browser.
-        </div>
-    </noscript>
+    <!-- =====================================================
+         LOADING PROGRESS
+    ===================================================== -->
 
-    <!-- ==========================================
+    <div id="page-loading-bar" aria-hidden="true"></div>
+
+    <!-- =====================================================
+         ACCESSIBILITY
+    ===================================================== -->
+
+    <a href="#main-content" class="skip-link">
+        Skip to main content
+    </a>
+
+    <!-- =====================================================
          HEADER
-    ========================================== -->
+         File: sections/header.html
+    ===================================================== -->
+
     <div id="header" data-section="header">
-        <header class="site-header">
-            <nav class="navbar" aria-label="Main navigation">
-                <a href="#home" class="logo">ModularPage</a>
-                <div class="nav-links">
-                    <a href="#home">Home</a>
-                    <a href="#about-section">About</a>
-                    <a href="#skills-section">Skills</a>
-                    <a href="#projects-section">Projects</a>
-                    <a href="#contact-section">Contact</a>
-                </div>
-            </nav>
-        </header>
+
+        <div class="section-placeholder" role="status">
+            <div class="section-spinner" aria-hidden="true"></div>
+            <p>Loading navigation...</p>
+        </div>
+
     </div>
 
-    <!-- ==========================================
+    <!-- =====================================================
          MAIN CONTENT
-    ========================================== -->
+    ===================================================== -->
+
     <main id="main-content">
 
-        <!-- HERO -->
+        <!-- ================================================
+             HERO
+             File: sections/hero.html
+        ================================================ -->
+
         <div id="hero" data-section="hero">
-            <section id="home" class="hero-section">
-                <div class="hero-content">
-                    <span class="hero-label">Modular Website Starter</span>
-                    <h1>Build Websites, One Section at a Time.</h1>
-                    <p>
-                        A modern single-page website starter built with
-                        HTML, CSS, JavaScript and JSON.
-                    </p>
-                    <a href="#about-section">Explore More</a>
-                </div>
-            </section>
+
+            <div class="section-placeholder" role="status">
+                <div class="section-spinner" aria-hidden="true"></div>
+                <p>Loading homepage...</p>
+            </div>
+
         </div>
 
-        <!-- ABOUT -->
+        <!-- ================================================
+             ABOUT
+             File: sections/about.html
+        ================================================ -->
+
         <div id="about" data-section="about">
-            <section id="about-section" class="about-section">
-                <div class="container">
-                    <h2>About This Project</h2>
-                    <p>
-                        Modular Single Page makes it easier to create
-                        and manage long websites using independent HTML sections.
-                    </p>
-                </div>
-            </section>
+
+            <div class="section-placeholder" role="status">
+                <div class="section-spinner" aria-hidden="true"></div>
+                <p>Loading about section...</p>
+            </div>
+
         </div>
 
-        <!-- SKILLS -->
+        <!-- ================================================
+             SKILLS
+             File: sections/skills.html
+        ================================================ -->
+
         <div id="skills" data-section="skills">
-            <section id="skills-section" class="skills-section">
-                <div class="container">
-                    <h2>Technologies</h2>
-                    <p>HTML5, CSS3, JavaScript and JSON.</p>
-                </div>
-            </section>
+
+            <div class="section-placeholder" role="status">
+                <div class="section-spinner" aria-hidden="true"></div>
+                <p>Loading technologies...</p>
+            </div>
+
         </div>
 
-        <!-- SERVICES -->
+        <!-- ================================================
+             SERVICES
+             File: sections/services.html
+        ================================================ -->
+
         <div id="services" data-section="services">
-            <section id="services-section" class="services-section">
-                <div class="container">
-                    <h2>Features & Services</h2>
-                    <p>
-                        Dynamic section loading, reusable components,
-                        responsive design and easy configuration.
-                    </p>
-                </div>
-            </section>
+
+            <div class="section-placeholder" role="status">
+                <div class="section-spinner" aria-hidden="true"></div>
+                <p>Loading features...</p>
+            </div>
+
         </div>
 
-        <!-- PROJECTS -->
+        <!-- ================================================
+             PROJECTS
+             File: sections/projects.html
+        ================================================ -->
+
         <div id="projects" data-section="projects">
-            <section id="projects-section" class="projects-section">
-                <div class="container">
-                    <h2>Example Projects</h2>
-                    <p>
-                        Explore sample projects created using
-                        modular web development techniques.
-                    </p>
-                </div>
-            </section>
+
+            <div class="section-placeholder" role="status">
+                <div class="section-spinner" aria-hidden="true"></div>
+                <p>Loading example projects...</p>
+            </div>
+
         </div>
 
-        <!-- EXPERIENCE -->
+        <!-- ================================================
+             EXPERIENCE
+             File: sections/experience.html
+        ================================================ -->
+
         <div id="experience" data-section="experience">
-            <section id="experience-section" class="experience-section">
-                <div class="container">
-                    <h2>Development Journey</h2>
-                    <p>
-                        Learn how reusable components simplify
-                        website development and maintenance.
-                    </p>
-                </div>
-            </section>
+
+            <div class="section-placeholder" role="status">
+                <div class="section-spinner" aria-hidden="true"></div>
+                <p>Loading development process...</p>
+            </div>
+
         </div>
 
-        <!-- CONTACT -->
+        <!-- ================================================
+             CONTACT
+             File: sections/contact.html
+
+             Existing default contact content preserved.
+             JavaScript replaces it when loading succeeds.
+        ================================================ -->
+
         <div id="contact" data-section="contact">
+
             <section id="contact-section" class="contact-section">
+
                 <div class="container">
-                    <h2>Get in Touch</h2>
+
+                    <span class="section-label">
+                        Connect & Contribute
+                    </span>
+
+                    <h2>
+                        Let's Build Something Better
+                    </h2>
+
                     <p>
-                        Interested in building modular websites?
-                        Explore the project and contribute on GitHub.
+                        Explore the source code, share ideas
+                        and contribute to the development
+                        of Modular Single Page.
                     </p>
-                    <a href="https://github.com/codersusheel"
-                        target="_blank" rel="noopener noreferrer">
-                        Visit GitHub
-                    </a>
+
+                    <div class="contact-grid">
+
+                        <div class="contact-info">
+
+                            <h3>Open Source Collaboration</h3>
+
+                            <p>
+                                Modular Single Page is developed
+                                by Codersusheel as a reusable
+                                website starter for developers.
+                            </p>
+
+                            <a href="https://github.com/codersusheel"
+                                target="_blank"
+                                rel="noopener noreferrer">
+                                GitHub →
+                            </a>
+
+                            <a href="https://www.linkedin.com/in/codersusheel/"
+                                target="_blank"
+                                rel="noopener noreferrer">
+                                LinkedIn →
+                            </a>
+
+                        </div>
+
+                        <form class="contact-form" id="contactForm">
+
+                            <label for="contactName">
+                                Your Name
+                            </label>
+
+                            <input type="text"
+                                id="contactName"
+                                name="name"
+                                placeholder="Enter your name"
+                                required>
+
+                            <label for="contactEmail">
+                                Email Address
+                            </label>
+
+                            <input type="email"
+                                id="contactEmail"
+                                name="email"
+                                placeholder="Enter your email"
+                                required>
+
+                            <label for="contactMessage">
+                                Your Message
+                            </label>
+
+                            <textarea
+                                id="contactMessage"
+                                name="message"
+                                rows="5"
+                                placeholder="Write your message"
+                                required></textarea>
+
+                            <button type="submit">
+                                Send Message
+                            </button>
+
+                            <p class="form-note">
+                                Demo form. Connect a backend
+                                or form service to receive messages.
+                            </p>
+
+                        </form>
+
+                    </div>
+
                 </div>
+
             </section>
+
         </div>
 
     </main>
 
-    <!-- ==========================================
+    <!-- =====================================================
          FOOTER
-    ========================================== -->
+         File: sections/footer.html
+    ===================================================== -->
+
     <div id="footer" data-section="footer">
-        <footer class="site-footer">
-            <div class="container">
-                <p>
-                    &copy; 2026 Modular Single Page.
-                    Built by
-                    <a href="https://github.com/codersusheel"
-                        target="_blank" rel="noopener noreferrer">
-                        Codersusheel
-                    </a>.
-                </p>
-            </div>
-        </footer>
+
+        <div class="section-placeholder" role="status">
+            <div class="section-spinner" aria-hidden="true"></div>
+            <p>Loading footer...</p>
+        </div>
+
     </div>
 
+    <!-- =====================================================
+         APPLICATION STATUS
+    ===================================================== -->
+
+    <div id="app-status"
+        role="status"
+        aria-live="polite"
+        hidden>
+    </div>
+
+    <!-- =====================================================
+         NOSCRIPT
+    ===================================================== -->
+
+    <noscript>
+        <div class="noscript-message">
+            JavaScript is required to load dynamic website sections.
+            Please enable JavaScript to view the complete website.
+        </div>
+    </noscript>
+
+    <!-- =====================================================
+         PAGE-SPECIFIC JAVASCRIPT
+         Works with existing main.js and section-loader.js
+    ===================================================== -->
+
+    <script>
+
+        (function () {
+            "use strict";
+
+            const progressBar = document.getElementById(
+                "page-loading-bar"
+            );
+
+            const statusBox = document.getElementById(
+                "app-status"
+            );
+
+            const knownSections = [
+                "header",
+                "hero",
+                "about",
+                "skills",
+                "services",
+                "projects",
+                "experience",
+                "contact",
+                "footer"
+            ];
+
+            const completed = new Set();
+
+            let totalSections = knownSections.length;
+
+            function setProgress() {
+                if (!progressBar) return;
+
+                const percent = Math.min(
+                    100,
+                    Math.round(
+                        (completed.size / totalSections) * 100
+                    )
+                );
+
+                progressBar.style.width = percent + "%";
+
+                if (percent === 100) {
+                    setTimeout(() => {
+                        progressBar.style.opacity = "0";
+                    }, 500);
+                }
+            }
+
+            function showStatus(message, duration = 3500) {
+                if (!statusBox) return;
+
+                statusBox.textContent = message;
+                statusBox.hidden = false;
+
+                if (duration > 0) {
+                    setTimeout(() => {
+                        statusBox.hidden = true;
+                    }, duration);
+                }
+            }
+
+            function createFallback(sectionId) {
+                const container = document.getElementById(
+                    sectionId
+                );
+
+                if (!container) return;
+
+                const existing = container.querySelector(
+                    ".section-placeholder"
+                );
+
+                if (!existing) return;
+
+                const sectionName = sectionId
+                    .replace(/-/g, " ")
+                    .replace(/\b\w/g, letter => letter.toUpperCase());
+
+                container.innerHTML = `
+                    <div class="section-fallback">
+                        <h2>${sectionName}</h2>
+                        <p>
+                            This section is temporarily unavailable.
+                            Please try again later.
+                        </p>
+                        <a href="#home">Back to Home</a>
+                    </div>
+                `;
+            }
+
+            function updateTotalSections() {
+                const sections = window.ModularApp?.sections;
+
+                if (!Array.isArray(sections) || !sections.length) {
+                    return;
+                }
+
+                totalSections = sections.filter(
+                    section => section.enabled !== false
+                ).length || knownSections.length;
+            }
+
+            document.addEventListener(
+                "sectionLoaded",
+                function (event) {
+
+                    const sectionId = event.detail?.id;
+
+                    if (!sectionId) return;
+
+                    completed.add(sectionId);
+                    setProgress();
+
+                }
+            );
+
+            document.addEventListener(
+                "sectionError",
+                function (event) {
+
+                    const sectionId = event.detail?.id;
+
+                    if (!sectionId) return;
+
+                    completed.add(sectionId);
+                    createFallback(sectionId);
+                    setProgress();
+
+                    console.warn(
+                        "Section fallback activated:",
+                        sectionId
+                    );
+
+                }
+            );
+
+            document.addEventListener(
+                "sectionsLoaded",
+                function () {
+
+                    updateTotalSections();
+                    setProgress();
+
+                }
+            );
+
+            document.addEventListener(
+                "websiteLoaded",
+                function () {
+
+                    updateTotalSections();
+
+                    progressBar.style.width = "100%";
+
+                    setTimeout(() => {
+                        progressBar.style.opacity = "0";
+                    }, 500);
+
+                    document.body.classList.add(
+                        "website-ready"
+                    );
+
+                    showStatus(
+                        "Website loaded successfully."
+                    );
+
+                }
+            );
+
+            document.addEventListener(
+                "appError",
+                function () {
+
+                    showStatus(
+                        "Some website content could not be loaded.",
+                        5000
+                    );
+
+                }
+            );
+
+            /* ==========================================
+               CONTACT FORM DEMO
+               Prevent accidental page reload.
+            ========================================== */
+
+            document.addEventListener(
+                "submit",
+                function (event) {
+
+                    if (
+                        !event.target.matches(
+                            "#contactForm"
+                        )
+                    ) {
+                        return;
+                    }
+
+                    event.preventDefault();
+
+                    showStatus(
+                        "Demo form only. Connect a backend to send messages.",
+                        5000
+                    );
+
+                }
+            );
+
+            /* ==========================================
+               HANDLE FAILED CONFIGURATION
+            ========================================== */
+
+            window.addEventListener(
+                "load",
+                function () {
+
+                    setTimeout(() => {
+
+                        if (
+                            window.ModularApp?.initialized
+                        ) {
+                            return;
+                        }
+
+                        knownSections.forEach(
+                            createFallback
+                        );
+
+                        if (progressBar) {
+                            progressBar.style.opacity = "0";
+                        }
+
+                        showStatus(
+                            "Website configuration could not be initialized.",
+                            5000
+                        );
+
+                    }, 8000);
+
+                }
+            );
+
+        })();
+
+    </script>
+
 </body>
+
 </html>

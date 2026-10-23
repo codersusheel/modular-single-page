@@ -1,0 +1,87 @@
+
+{
+  "project": {
+    "name": "Modular Single Page",
+    "shortName": "ModularPage",
+    "version": "1.0.0",
+    "description": "A lightweight, modular and reusable single-page website starter built with HTML, CSS, JavaScript and JSON.",
+    "status": "development",
+    "language": "en",
+    "license": "MIT"
+  },
+  "branding": {
+    "siteName": "Modular Single Page",
+    "logoText": "ModularPage",
+    "logoImage": "",
+    "favicon": "",
+    "tagline": "Build Websites, One Section at a Time.",
+    "footerText": "Built with HTML, CSS, JavaScript and JSON."
+  },
+  "developer": {
+    "name": "Codersusheel",
+    "github": "https://github.com/codersusheel",
+    "linkedin": "https://www.linkedin.com/in/codersusheel/",
+    "website": "https://codersusheel.netlify.app/"
+  },
+  "website": {
+    "baseUrl": "https://codersusheel.github.io/modular-single-page/",
+    "basePath": "/modular-single-page/",
+    "defaultPage": "index.html",
+    "defaultSection": "hero",
+    "scrollBehavior": "smooth",
+    "stickyHeader": true,
+    "showBackToTop": true,
+    "showLoadingIndicator": true,
+    "enableAnimations": true,
+    "enableLazyLoading": true
+  },
+  "theme": {
+    "default": "system",
+    "allowToggle": true,
+    "primaryColor": "#2563eb",
+    "secondaryColor": "#0f172a",
+    "light": {
+      "background": "#ffffff",
+      "surface": "#f8fafc",
+      "text": "#0f172a",
+      "muted": "#64748b",
+      "border": "#e2e8f0"
+    },
+    "dark": {
+      "background": "#020617",
+      "surface": "#0f172a",
+      "text": "#f8fafc",
+      "muted": "#94a3b8",
+      "border": "#334155"
+    }
+  },
+  "seo": {
+    "title": "Modular Single Page | HTML, CSS & JavaScript",
+    "description": "Build modern modular single-page websites using HTML, CSS, JavaScript and JSON.",
+    "keywords": [
+      "Modular Single Page",
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "JSON",
+      "Vanilla JS",
+      "Dynamic Sections",
+      "Website Starter"
+    ],
+    "author": "Codersusheel",
+    "robots": "index, follow",
+    "ogType": "website",
+    "ogImage": ""
+  },
+  "socialMedia": {
+    "github": "https://github.com/codersusheel",
+    "linkedin": "https://www.linkedin.com/in/codersusheel/"
+  },
+  "footer": {
+    "showCopyright": true,
+    "copyrightYear": 2026,
+    "copyrightHolder": "Codersusheel",
+    "showDeveloperCredit": true,
+    "showSocialLinks": true
+  }
+}

@@ -1,46 +1,138 @@
 
 {
   "version": "1.0.0",
+  "settings": {
+    "autoLoad": true,
+    "loadMode": "parallel",
+    "preserveOrder": true,
+    "enableFallback": true,
+    "keepFallbackOnError": true,
+    "showErrorsInConsole": true,
+    "enableSectionEvents": true,
+    "scrollToHashAfterLoad": true
+  },
   "sections": [
     {
       "id": "header",
+      "name": "Header",
       "file": "sections/header.html",
+      "css": [],
+      "js": [],
       "enabled": true,
-      "navigation": false
+      "position": "header",
+      "order": 1,
+      "navigation": false,
+      "fallback": true
     },
     {
       "id": "hero",
+      "name": "Home",
       "file": "sections/hero.html",
+      "css": [],
+      "js": [],
       "enabled": true,
+      "position": "main",
+      "order": 10,
       "navigation": true,
-      "label": "Home"
+      "label": "Home",
+      "anchor": "home",
+      "fallback": true
     },
     {
       "id": "about",
+      "name": "About",
       "file": "sections/about.html",
+      "css": [],
+      "js": [],
       "enabled": true,
+      "position": "main",
+      "order": 20,
       "navigation": true,
-      "label": "About"
+      "label": "About",
+      "anchor": "about-section",
+      "fallback": true
+    },
+    {
+      "id": "skills",
+      "name": "Skills",
+      "file": "sections/skills.html",
+      "css": [],
+      "js": [],
+      "enabled": true,
+      "position": "main",
+      "order": 30,
+      "navigation": true,
+      "label": "Skills",
+      "anchor": "skills-section",
+      "fallback": true
+    },
+    {
+      "id": "services",
+      "name": "Services",
+      "file": "sections/services.html",
+      "css": [],
+      "js": [],
+      "enabled": true,
+      "position": "main",
+      "order": 40,
+      "navigation": true,
+      "label": "Services",
+      "anchor": "services-section",
+      "fallback": true
     },
     {
       "id": "projects",
+      "name": "Projects",
       "file": "sections/projects.html",
+      "css": [],
+      "js": [],
       "enabled": true,
+      "position": "main",
+      "order": 50,
       "navigation": true,
-      "label": "Projects"
+      "label": "Projects",
+      "anchor": "projects-section",
+      "fallback": true
+    },
+    {
+      "id": "experience",
+      "name": "Experience",
+      "file": "sections/experience.html",
+      "css": [],
+      "js": [],
+      "enabled": true,
+      "position": "main",
+      "order": 60,
+      "navigation": true,
+      "label": "Experience",
+      "anchor": "experience-section",
+      "fallback": true
     },
     {
       "id": "contact",
+      "name": "Contact",
       "file": "sections/contact.html",
+      "css": [],
+      "js": [],
       "enabled": true,
+      "position": "main",
+      "order": 70,
       "navigation": true,
-      "label": "Contact"
+      "label": "Contact",
+      "anchor": "contact-section",
+      "fallback": true
     },
     {
       "id": "footer",
+      "name": "Footer",
       "file": "sections/footer.html",
+      "css": [],
+      "js": [],
       "enabled": true,
-      "navigation": false
+      "position": "footer",
+      "order": 100,
+      "navigation": false,
+      "fallback": true
     }
   ]
 }
